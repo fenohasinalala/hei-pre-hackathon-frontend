@@ -17,10 +17,10 @@ import TablePage from "./pages/TablePage";
 
 function App() {
   const [sessionAcuell, setSessionAcuell] = useState<number>(1);
-  const [database, setDatabase] = useState<dataReal[] | null>(null);
-  const [listSession, setListSession] = useState<session[] | null>(null);
-  const [moyene, setMoyene] = useState<number>(10);
-  const [poursoontage, sePoursoontage] = useState<number>(10);
+  //const [database, setDatabase] = useState<dataReal[] | null>(null);
+  //const [listSession, setListSession] = useState<session[] | null>(null);
+  //const [moyene, setMoyene] = useState<number>(10);
+  //const [poursoontage, sePoursoontage] = useState<number>(10);
   const [candidates, setCandidates] = useState<string>("10");
   const [note, setNote] = useState<string>("10");
   const [concours, setConcours] = useState<string>("10");

@@ -223,6 +223,21 @@ export const database:dataReal[]=[{
     "math":base[0].math,
     "status":base[0].fr+base[0].math<20?"Recalé":"Admis"
 }];
+
+const calcue = (fr_C:number,fr_bacc:number,math_C:number,math_bacc:number,min:number,minMath:number,minl:number, )=>{
+    const moy = (fr_C + fr_bacc + math_C + math_bacc)/4;
+    const moyM = (math_C + math_bacc)/2;
+    if ((moy>=min)&&(moyM>=minMath)) {
+        return "Admis";
+    }else if ((moy>=minl)&&(moyM>=minMath)) {
+        return "List d'attente";
+    }else{
+        return"Recalé";
+    }
+    
+}
+
+
 base.map(
     (data, idx) => {
         if (idx!=0) {
@@ -232,11 +247,11 @@ base.map(
                 "last_name":data.last_name,
                 "fr_C":data.fr_C,
                 "fr_bacc":data.fr_bacc,
-                "fr":data.fr,
+                "fr":(data.fr_C+data.fr_bacc)/2,
                 "math_C":data.math_C,
                 "math_bacc":data.math_bacc,
-                "math":data.math,
-                "status":data.fr+data.math<20?"Recalé":"Admis"
+                "math":(data.math_C+data.math_bacc)/2,
+                "status":calcue(data.fr_C,data.fr_bacc,data.math_C,data.math_bacc,12,7,9)
             };
             database.push(d);
         }
