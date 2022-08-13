@@ -1,4 +1,6 @@
 import React from "react";
+import axios from 'axios';
+import { useState, useEffect } from "react";
 import {
   Button,
   Col,
@@ -11,6 +13,23 @@ import {
 import "./App.css";
 
 function App() {
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    axios({
+      url: "https://hackaton-test-bd.herokuapp.com/candidates"
+    })
+      .then(response => {
+        setList(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, [setList]);
+
+  console.log(list);
+  
+  
   return (
     <div className="App">
       <Navbar bg="dark" variant="dark" className="justify-content-between">
